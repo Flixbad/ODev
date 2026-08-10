@@ -20,6 +20,11 @@ assets/                # Médias statiques du projet
 docs/                  # Documentation
 ```
 
+## Déploiement
+
+Export statique (`output: "export"`) → dossier `out/` compatible Apache / Hostinger mutualisé.
+Voir `docs/deploiement-hostinger.md`.
+
 ## Design system
 
 Direction visuelle **Signal Forge** :

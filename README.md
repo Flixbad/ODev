@@ -25,12 +25,23 @@ npm run dev
 
 ## Scripts
 
-| Commande        | Description              |
-|-----------------|--------------------------|
-| `npm run dev`   | Serveur de développement |
-| `npm run build` | Build production         |
-| `npm start`     | Serveur production       |
-| `npm run lint`  | ESLint                   |
+| Commande                  | Description                                      |
+|---------------------------|--------------------------------------------------|
+| `npm run dev`             | Serveur de développement                         |
+| `npm run build`           | Build statique → dossier `out/`                  |
+| `npm run build:hostinger` | Build + zip prêt pour Hostinger mutualisé        |
+| `npm start`               | Non utilisé pour Hostinger (export statique)       |
+| `npm run lint`            | ESLint                                           |
+
+## Déploiement Hostinger (mutualisé)
+
+```bash
+npm run build:hostinger
+```
+
+Uploade le contenu de **`out/`** (ou `odev-hostinger.zip`) dans **`public_html`**.
+
+Guide détaillé : [docs/deploiement-hostinger.md](docs/deploiement-hostinger.md)
 
 ## Arborescence
 

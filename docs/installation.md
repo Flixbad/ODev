@@ -21,12 +21,14 @@ npm run dev
 
 Ouvrir [http://localhost:3000](http://localhost:3000).
 
-## Production
+## Production (Hostinger mutualisé)
 
 ```bash
-npm run build
-npm start
+npm run build:hostinger
 ```
+
+Uploade le contenu de `out/` dans `public_html`.  
+Voir [deploiement-hostinger.md](./deploiement-hostinger.md).
 
 ## Variables d'environnement
 
