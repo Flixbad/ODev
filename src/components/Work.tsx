@@ -1,39 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Tag } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 
-const projects = [
-  {
-    title: "Nova Retail",
-    type: "Site vitrine + catalogue",
-    stack: "Next.js · CMS",
-    year: "2025",
-    accent: "bg-signal",
-  },
-  {
-    title: "Horizon Fleet",
-    type: "Gestion d'entreprise",
-    stack: "React · Node.js",
-    year: "2025",
-    accent: "bg-teal",
-  },
-  {
-    title: "Atelier Meridian",
-    type: "Dashboard métier",
-    stack: "React · API",
-    year: "2024",
-    accent: "bg-ink",
-  },
-  {
-    title: "Pulse Clinic",
-    type: "Prise de rendez-vous",
-    stack: "Node.js · UI",
-    year: "2024",
-    accent: "bg-signal-hot",
-  },
-];
+const PROJECT_URL = "https://dynasty8.kodyalabs.fr/";
+const CONTACT_URL =
+  "https://life.oren-rp.com/profile/cmshprltu0j3vmj1d4p6lg3yj";
 
 export function Work() {
   return (
@@ -44,48 +17,87 @@ export function Work() {
             Réalisations
           </p>
           <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight md:text-6xl">
-            Projets fictifs, exigence réelle.
+            Projet en vente
           </h2>
           <p className="mt-5 max-w-xl text-paper/65">
-            Une sélection représentative du type de livrables ODev — du site
-            d&apos;image à l&apos;outil opérationnel.
+            Une réalisation ODev actuellement proposée à la cession.
           </p>
         </Reveal>
 
-        <ul className="mt-14 divide-y divide-white/10 border-y border-white/10">
-          {projects.map((project, i) => (
-            <Reveal key={project.title} as="li" delay={i * 0.06}>
-              <motion.article
-                whileHover={{ x: 6 }}
-                className="group flex flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between md:gap-8 md:py-10"
-              >
-                <div className="flex items-start gap-5 md:items-center md:gap-8">
-                  <span
-                    className={`mt-1.5 h-3 w-3 shrink-0 rotate-45 ${project.accent} md:mt-0`}
-                  />
-                  <div>
-                    <h3 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-paper/55 md:text-base">
-                      {project.type}
-                    </p>
-                  </div>
+        <Reveal delay={0.1} className="mt-14">
+          <article className="relative overflow-hidden border border-white/10 bg-paper/[0.03]">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-signal/20 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-20 left-1/3 h-48 w-48 rounded-full bg-teal/15 blur-3xl" />
+
+            <div className="relative grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="border-b border-white/10 p-8 md:p-10 lg:border-b-0 lg:border-r">
+                <div className="inline-flex items-center gap-2 border border-signal/40 bg-signal/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-signal-hot">
+                  <Tag className="h-3.5 w-3.5" />
+                  En vente
                 </div>
 
-                <div className="flex items-center justify-between gap-6 pl-8 md:pl-0">
-                  <span className="font-mono text-xs text-paper/45 md:text-sm">
-                    {project.stack}
-                  </span>
-                  <span className="flex items-center gap-3 text-sm text-paper/70">
-                    {project.year}
-                    <ArrowUpRight className="h-4 w-4 text-signal-hot opacity-0 transition-opacity group-hover:opacity-100" />
-                  </span>
+                <h3 className="mt-6 font-display text-4xl font-bold tracking-tight md:text-5xl">
+                  Dynasty8
+                </h3>
+                <p className="mt-3 text-sm uppercase tracking-[0.18em] text-paper/45">
+                  Site immobilier de prestige
+                </p>
+                <p className="mt-6 max-w-lg text-base leading-relaxed text-paper/70 md:text-lg">
+                  Plateforme web complète pour une agence immobilière : catalogue
+                  de biens, filtres, zones, parcours de découverte et expérience
+                  visuelle soignée.
+                </p>
+
+                <a
+                  href={PROJECT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-paper underline-offset-4 transition-colors hover:text-signal-hot hover:underline"
+                >
+                  dynasty8.kodyalabs.fr
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              <div className="flex flex-col justify-between gap-8 p-8 md:p-10">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-paper/45">
+                    Prix de cession
+                  </p>
+                  <p className="mt-3 font-display text-5xl font-extrabold tracking-tight text-signal-hot md:text-6xl">
+                    90k$
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-paper/55">
+                    Projet clé en main — me contacter pour discuter de la reprise.
+                  </p>
                 </div>
-              </motion.article>
-            </Reveal>
-          ))}
-        </ul>
+
+                <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+                  <MagneticButton
+                    href={CONTACT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="primary"
+                    className="w-full sm:w-auto"
+                  >
+                    Me contacter
+                    <ArrowUpRight className="h-4 w-4" />
+                  </MagneticButton>
+                  <MagneticButton
+                    href={PROJECT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="ghost"
+                    className="w-full border-white/25 text-paper hover:border-paper hover:bg-paper hover:text-ink sm:w-auto"
+                  >
+                    Voir le site
+                    <ArrowUpRight className="h-4 w-4" />
+                  </MagneticButton>
+                </div>
+              </div>
+            </div>
+          </article>
+        </Reveal>
       </div>
     </section>
   );

@@ -21,6 +21,8 @@ type MagneticButtonProps = {
   className?: string;
   variant?: "primary" | "ghost" | "ink";
   type?: "button" | "submit";
+  target?: string;
+  rel?: string;
 };
 
 export function MagneticButton({
@@ -30,6 +32,8 @@ export function MagneticButton({
   className,
   variant = "primary",
   type = "button",
+  target,
+  rel,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const reduce = useReducedMotion();
@@ -71,6 +75,8 @@ export function MagneticButton({
       <motion.a
         ref={ref as RefObject<HTMLAnchorElement>}
         href={href}
+        target={target}
+        rel={rel}
         style={{ x: springX, y: springY }}
         onMouseMove={onMove}
         onMouseLeave={onLeave}
