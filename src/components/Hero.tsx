@@ -76,30 +76,30 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-6rem)] max-w-7xl flex-col justify-end px-5 pb-16 md:justify-center md:px-8 md:pb-24">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-6rem)] max-w-7xl flex-col justify-center px-5 pb-12 pt-8 md:px-8 md:pb-20">
         <motion.p
           className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-ink-soft"
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.55 }}
         >
           Darren O&apos;Sullivan · Micro-entreprise
         </motion.p>
 
         <motion.h1
-          className="font-display text-[clamp(4.5rem,18vw,11rem)] leading-[0.82] font-extrabold tracking-tight text-ink"
-          initial={reduce ? false : { opacity: 0, y: 40 }}
+          className="font-display text-[clamp(4.25rem,16vw,10.5rem)] leading-[0.82] font-extrabold tracking-tight text-ink"
+          initial={reduce ? false : { opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
           O<span className="text-signal">Dev</span>
         </motion.h1>
 
         <motion.p
           className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft md:text-xl"
-          initial={reduce ? false : { opacity: 0, y: 24 }}
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.7 }}
+          transition={{ delay: 0.15, duration: 0.6 }}
         >
           Des expériences web taillées sur mesure — React, Node.js et systèmes
           métier qui font gagner du temps à votre entreprise.
@@ -107,9 +107,9 @@ export function Hero() {
 
         <motion.div
           className="mt-10 flex flex-wrap items-center gap-4"
-          initial={reduce ? false : { opacity: 0, y: 20 }}
+          initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
+          transition={{ delay: 0.28, duration: 0.55 }}
         >
           <MagneticButton href="#contact" variant="primary">
             Discuter de votre projet
@@ -122,10 +122,10 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="mt-16 flex items-end justify-between border-t border-[var(--line-strong)] pt-6"
+          className="mt-14 flex items-end justify-between border-t border-[var(--line-strong)] pt-6 md:mt-16"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 0.45 }}
         >
           <p className="max-w-xs text-xs uppercase tracking-[0.2em] text-ink-soft">
             Conception · Développement · Mise en production
