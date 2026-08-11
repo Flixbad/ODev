@@ -4,6 +4,9 @@
 Options -MultiViews
 RewriteEngine On
 
+# Ne pas intercepter l'API PHP CRM
+RewriteRule ^api(/|$) - [L]
+
 # HTTPS (décommenter si le certificat SSL est actif)
 # RewriteCond %{HTTPS} off
 # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -15,6 +18,7 @@ RewriteRule ^ - [L]
 
 # Pages 404 Next (export)
 ErrorDocument 404 /404.html
+
 
 # Compression
 <IfModule mod_deflate.c>

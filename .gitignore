@@ -37,6 +37,8 @@ yarn-error.log*
 
 # ODev Gestion (secrets locaux)
 /gestion/config.php
+/api/config.php
+/deploy-hostinger/
 
 
 # vercel

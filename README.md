@@ -39,20 +39,18 @@ npm run dev
 npm run build:hostinger
 ```
 
-Uploade le contenu de **`out/`** (ou `odev-hostinger.zip`) dans **`public_html`**.
+Uploade le contenu de **`deploy-hostinger/`** (ou `odev-hostinger.zip`) dans **`public_html`**.
 
-Guide détaillé : [docs/deploiement-hostinger.md](docs/deploiement-hostinger.md)
+Puis configure l’API : `https://ton-domaine/api/setup.php`
 
-## ODev Gestion (CRM)
+Guide : [docs/deploiement-hostinger.md](docs/deploiement-hostinger.md)
 
-Back-office PHP + MySQL (clients, devis, factures, compta) dans `gestion/`.
+### CRM intégré
 
-```text
-public_html/          → site vitrine (out/)
-public_html/gestion/  → CRM PHP
-```
-
-Guide : [docs/odev-gestion-hostinger.md](docs/odev-gestion-hostinger.md) · [gestion/README.md](gestion/README.md)
+- Site public : `/`
+- Connexion : `/connexion/` (sans inscription)
+- Espace : `/espace/` (clients, devis, factures, compta)
+- API MySQL : `/api/`
 
 ## Arborescence
 

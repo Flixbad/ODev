@@ -1,62 +1,48 @@
-# Déploiement Hostinger (hébergement mutualisé)
+# Déploiement unifié ODev (site + CRM) — Hostinger
 
-ODev est exporté en **site statique** : pas besoin de Node.js sur le serveur Hostinger.
+Un **seul site** : vitrine Next.js + espace CRM (`/connexion`, `/espace`) + API PHP MySQL (`/api`).
 
-## Préparer les fichiers
-
-Sur ta machine :
+## Build local
 
 ```bash
 npm install
 npm run build:hostinger
 ```
 
-Cela génère :
+Génère :
+- `deploy-hostinger/` (à uploader)
+- `odev-hostinger.zip`
 
-- le dossier **`out/`** (à uploader)
-- éventuellement **`odev-hostinger.zip`** (même contenu, pratique pour File Manager)
+## Upload Hostinger
 
-## Uploader sur Hostinger
+1. Uploade le **contenu** de `deploy-hostinger/` dans **`public_html/`**
+2. Vérifie la présence de :
+   - `index.html` (accueil)
+   - `connexion/`
+   - `espace/`
+   - `api/` (PHP)
 
-1. Connecte-toi au **hPanel** Hostinger
-2. Ouvre **Fichiers** → **Gestionnaire de fichiers**
-3. Entre dans **`public_html`** (domaine principal)  
-   ou le sous-dossier du domaine / sous-domaine concerné
-4. Supprime le contenu par défaut Hostinger si besoin (`default.php`, page d’accueil temporaire…)
-5. Uploade **tout le contenu** de `out/` (pas le dossier `out` lui-même)  
-   - soit en glissant les fichiers  
-   - soit en uploadant `odev-hostinger.zip` puis **Extraire**
-6. Vérifie que tu as bien à la racine :
-   - `index.html`
-   - `.htaccess`
-   - dossier `_next/`
+## Base MySQL (phpMyAdmin / hPanel)
 
-## Après upload
+1. Crée une base + utilisateur MySQL
+2. Ouvre **`https://ton-domaine/api/setup.php`**
+3. Remplis les identifiants + crée **ton seul compte admin**
+4. **Supprime `api/setup.php`**
 
-- Ouvre ton domaine dans le navigateur
-- Active le **SSL gratuit** (Let’s Encrypt) dans hPanel si ce n’est pas déjà fait
-- Dans `public_html/.htaccess`, tu peux décommenter les lignes HTTPS pour forcer le HTTPS
+> N’utilise pas `install.php` — souvent bloqué / 404 chez Hostinger.
 
-## Mise à jour plus tard
+## Utilisation
 
-```bash
-npm run build:hostinger
-```
+| URL | Rôle |
+|-----|------|
+| `/` | Site vitrine public |
+| `/connexion/` | Connexion (pas d’inscription) |
+| `/espace/` | CRM (clients, devis, factures, compta) |
 
-Puis remplace les fichiers dans `public_html` (ou ré-extrais le nouveau zip).
+Le bouton **Connexion** de la barre de navigation mène à `/connexion/`.
 
 ## Important
 
-| Oui | Non |
-|-----|-----|
-| Hébergement mutualisé classique | `npm start` / serveur Node sur le mutualisé |
-| Upload de `out/` | Upload du projet source (`src/`, `node_modules/`) |
-| Domaine ou sous-domaine | — |
-
-Le formulaire de contact est une démo front-end (pas d’envoi email serveur). Pour un vrai envoi, brancher plus tard un service type Formspree / EmailJS / webhook.
-
-## Dépannage
-
-- **Page blanche** : vérifie que `index.html` est bien dans `public_html`, pas dans `public_html/out/`
-- **CSS / JS cassés** : le dossier `_next` doit être présent à côté de `index.html`
-- **404** : le `.htaccess` doit être uploadé (fichiers cachés visibles dans le File Manager)
+- Pas de création de compte publique
+- L’ancien dossier `gestion/` (UI PHP séparée) n’est plus nécessaire pour le site
+- Ne commit jamais `api/config.php`

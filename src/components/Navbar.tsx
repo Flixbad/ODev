@@ -63,7 +63,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="/gestion/"
+            href="/connexion/"
             className="border border-[var(--line-strong)] bg-transparent px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
           >
             Connexion
@@ -132,7 +132,7 @@ export function Navbar() {
             </ul>
             <div className="mt-10 flex flex-col gap-3">
               <a
-                href="/gestion/"
+                href="/connexion/"
                 onClick={() => setOpen(false)}
                 className="inline-flex border border-ink px-5 py-3 text-sm font-semibold uppercase tracking-wider text-ink"
               >

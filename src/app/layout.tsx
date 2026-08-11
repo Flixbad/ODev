@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, Manrope } from "next/font/google";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 const syne = Syne({
@@ -44,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col font-sans text-foreground">
         <div className="grain" aria-hidden />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

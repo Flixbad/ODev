@@ -1,0 +1,28 @@
+DirectoryIndex index.php
+
+# Protéger la config
+<Files "config.php">
+  Require all denied
+</Files>
+<FilesMatch "^(config\.php)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Réécriture path-style → index.php?r=
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Ajustez si le dossier public n’est pas /api/
+  RewriteBase /api/
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.php?r=$1 [QSA,L]
+</IfModule>
+
+# CORS same-origin (credentials / cookies)
+<IfModule mod_headers.c>
+  Header always set Access-Control-Allow-Credentials "true"
+  Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+  Header always set Access-Control-Allow-Headers "Content-Type, X-Requested-With"
+</IfModule>

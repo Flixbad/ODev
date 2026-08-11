@@ -153,3 +153,110 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* CRM — light workspace styles using ODev tokens */
+.crm-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.crm-input {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.crm-input:focus {
+  border-color: var(--ink);
+}
+
+.crm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.crm-table th {
+  text-align: left;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+}
+
+.crm-table td {
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.crm-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.crm-btn,
+.crm-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ink);
+  padding: 0.65rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+}
+
+.crm-btn {
+  background: transparent;
+  color: var(--ink);
+}
+
+.crm-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.crm-btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.crm-btn-primary:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+}
+
+.crm-btn:disabled,
+.crm-btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.crm-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--teal);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.crm-link:hover {
+  color: var(--ink);
+}
