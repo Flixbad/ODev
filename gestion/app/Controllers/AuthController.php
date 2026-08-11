@@ -43,7 +43,7 @@ final class AuthController
     public static function logout(): void
     {
         Auth::logout();
-        redirect_raw('index.php?r=login');
+        redirect_raw('index.php');
     }
 }
 

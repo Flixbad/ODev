@@ -61,12 +61,20 @@ export function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden border border-ink bg-ink px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-paper transition-colors hover:bg-signal hover:border-signal md:inline-flex"
-        >
-          Lancer un projet
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href="/gestion/"
+            className="border border-[var(--line-strong)] bg-transparent px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
+          >
+            Connexion
+          </a>
+          <a
+            href="#contact"
+            className="border border-ink bg-ink px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-paper transition-colors hover:bg-signal hover:border-signal"
+          >
+            Lancer un projet
+          </a>
+        </div>
 
         <button
           type="button"
@@ -122,13 +130,22 @@ export function Navbar() {
                 </motion.li>
               ))}
             </ul>
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="mt-10 inline-flex border border-ink bg-signal px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white"
-            >
-              Lancer un projet
-            </a>
+            <div className="mt-10 flex flex-col gap-3">
+              <a
+                href="/gestion/"
+                onClick={() => setOpen(false)}
+                className="inline-flex border border-ink px-5 py-3 text-sm font-semibold uppercase tracking-wider text-ink"
+              >
+                Connexion
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="inline-flex border border-ink bg-signal px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white"
+              >
+                Lancer un projet
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

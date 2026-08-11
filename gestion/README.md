@@ -16,12 +16,13 @@ Compatible **Hostinger mutualisé** + **phpMyAdmin**.
 ## Déploiement Hostinger
 
 1. Crée une base MySQL dans hPanel (+ utilisateur)
-2. Uploade le dossier `gestion/` dans `public_html/gestion/` (FTP / File Manager)
-3. Ouvre `https://votredomaine.fr/gestion/install.php`
-4. Saisis les identifiants MySQL + compte admin
-5. Connecte-toi, puis **supprime `install.php`**
+2. Uploade le dossier `gestion/` dans `public_html/gestion/`
+3. Ouvre **`https://votredomaine.fr/gestion/setup.php`**  
+   (évite `install.php`, souvent en 404 / bloqué chez Hostinger)
+4. Configure MySQL + compte admin unique
+5. Accueil public : `/gestion/` → bouton **Connexion** seulement
+6. Supprime `setup.php` et `install.php`
 
-Tu peux aussi importer manuellement `sql/schema.sql` via phpMyAdmin, puis copier `config.example.php` → `config.php`.
 
 ## Local (optionnel)
 

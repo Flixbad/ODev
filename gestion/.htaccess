@@ -1,16 +1,21 @@
 # ODev Gestion — Apache / Hostinger
 Options -Indexes
-DirectoryIndex index.php
+DirectoryIndex index.php setup.php
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # Bloquer l'accès direct aux dossiers sensibles
+  # Laisser passer les fichiers / dossiers existants (setup.php, assets, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Bloquer l'accès web aux dossiers sensibles
   RewriteRule ^(app|sql|storage)/ - [F,L]
   RewriteRule ^config\.php$ - [F,L]
 </IfModule>
 
-<FilesMatch "^(config\.php|config\.example\.php)$">
+<Files "config.php">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
-</FilesMatch>
+</Files>

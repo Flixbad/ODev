@@ -12,29 +12,44 @@ Note les valeurs : **hôte** (souvent `localhost`), **nom**, **user**, **mot de 
 
 ## 2. Fichiers
 
-Uploade le contenu du dossier `gestion/` vers :
+Uploade le **contenu** du dossier `gestion/` vers :
 
 ```
 public_html/gestion/
 ```
 
-(ou un sous-domaine dédié)
+Tu dois voir à cet endroit : `index.php`, `setup.php`, `assets/`, `app/`, `sql/`, etc.
 
-## 3. Installation
+## 3. Configuration (important)
 
-1. Va sur `https://ton-domaine/gestion/install.php`
-2. Remplis le formulaire MySQL + compte admin
-3. Clique **Installer**
-4. Connecte-toi
-5. **Supprime `install.php`** (File Manager)
+Hostinger bloque souvent `install.php` → utilise **`setup.php`** :
 
-## 4. Alternative phpMyAdmin
+1. Ouvre `https://ton-domaine/gestion/setup.php`
+2. Remplis MySQL + compte admin (ce sera le **seul** compte)
+3. Valide
+4. Va sur `https://ton-domaine/gestion/` → page d’accueil publique
+5. Clique **Connexion** (pas d’inscription)
+6. **Supprime `setup.php` et `install.php`**
 
-1. phpMyAdmin → importer `sql/schema.sql`
+Si tu as un 404 sur `install.php`, c’est normal : utilise `setup.php`.
+
+## 4. Accès public vs privé
+
+| URL | Comportement |
+|-----|----------------|
+| `/gestion/` | Accueil public + bouton Connexion |
+| `/gestion/index.php?r=login` | Formulaire de connexion |
+| `/gestion/index.php?r=dashboard` | Back-office (login requis) |
+
+Aucune inscription publique.
+
+## 5. Alternative phpMyAdmin
+
+1. Importer `sql/schema.sql`
 2. Copier `config.example.php` → `config.php` et remplir les identifiants
-3. Créer un user manuellement (hash bcrypt) ou passer par install.php uniquement pour le compte
+3. Créer l’admin via `setup.php` (ou hash bcrypt manuel)
 
-## 5. Usage
+## 6. Modules après connexion
 
 | Module | Rôle |
 |--------|------|
@@ -42,5 +57,3 @@ public_html/gestion/
 | Devis | Propositions commerciales |
 | Factures | Facturation + paiements |
 | Compta | Suivi encaissements / reste dû |
-
-Impression devis/facture : bouton **Imprimer / PDF** (impression navigateur → enregistrer en PDF).

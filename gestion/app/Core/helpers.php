@@ -13,7 +13,7 @@ function app_config(): array
     if ($config === null) {
         $file = base_path('config.php');
         if (!is_file($file)) {
-            redirect_raw('install.php');
+            redirect_raw('setup.php');
         }
         $config = require $file;
     }
@@ -133,9 +133,9 @@ function post_float(string $key, float $default = 0.0): float
 
 function request_route(): string
 {
-    $r = $_GET['r'] ?? 'dashboard';
-    $r = is_string($r) ? trim($r, '/') : 'dashboard';
-    return $r === '' ? 'dashboard' : $r;
+    $r = $_GET['r'] ?? 'home';
+    $r = is_string($r) ? trim($r, '/') : 'home';
+    return $r === '' ? 'home' : $r;
 }
 
 function next_document_number(string $prefix, string $table): string

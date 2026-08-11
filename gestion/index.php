@@ -12,6 +12,7 @@ require __DIR__ . '/app/Models/Client.php';
 require __DIR__ . '/app/Models/Devis.php';
 require __DIR__ . '/app/Models/Facture.php';
 require __DIR__ . '/app/Models/Paiement.php';
+require __DIR__ . '/app/Controllers/HomeController.php';
 require __DIR__ . '/app/Controllers/AuthController.php';
 require __DIR__ . '/app/Controllers/ClientController.php';
 require __DIR__ . '/app/Controllers/DevisController.php';
@@ -23,11 +24,15 @@ use App\Controllers\ComptaController;
 use App\Controllers\DashboardController;
 use App\Controllers\DevisController;
 use App\Controllers\FactureController;
+use App\Controllers\HomeController;
 use App\Core\Router;
 
 $configFile = __DIR__ . '/config.php';
-if (!is_file($configFile) && !str_starts_with(request_route(), 'install')) {
-    header('Location: install.php');
+$route = request_route();
+
+// Pas encore configuré → setup (évite install.php souvent bloqué chez Hostinger)
+if (!is_file($configFile) && !in_array($route, ['setup', 'login'], true)) {
+    header('Location: setup.php');
     exit;
 }
 
@@ -38,11 +43,13 @@ if (is_file($configFile)) {
 
 $router = new Router();
 
+$router->get('/', [HomeController::class, 'index']);
+$router->get('/home', [HomeController::class, 'index']);
+
 $router->get('/login', [AuthController::class, 'loginForm']);
 $router->post('/login', [AuthController::class, 'login']);
 $router->get('/logout', [AuthController::class, 'logout']);
 
-$router->get('/', [DashboardController::class, 'index']);
 $router->get('/dashboard', [DashboardController::class, 'index']);
 
 $router->get('/clients', [ClientController::class, 'index']);
@@ -71,4 +78,4 @@ $router->post('/factures/payment-delete', [FactureController::class, 'deletePaym
 
 $router->get('/compta', [ComptaController::class, 'index']);
 
-$router->dispatch($_SERVER['REQUEST_METHOD'] ?? 'GET', '/' . request_route());
+$router->dispatch($_SERVER['REQUEST_METHOD'] ?? 'GET', '/' . $route);
