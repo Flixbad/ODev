@@ -14,6 +14,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outDir = join(__dirname, "export");
+const imgDir = join(__dirname, "assets", "img");
 mkdirSync(outDir, { recursive: true });
 
 const COLORS = {
@@ -25,6 +26,37 @@ const COLORS = {
   signal: "E63312",
   teal: "1A7A72",
 };
+
+const PROJECTS = [
+  {
+    title: "ODev Studio",
+    type: "Site vitrine studio",
+    desc: "Présence web de la micro-entreprise : services, méthode, réalisations et contact.",
+    url: "https://odev.kodyalabs.fr/",
+    host: "odev.kodyalabs.fr",
+    image: join(imgDir, "odev.png"),
+    accent: "E63312",
+  },
+  {
+    title: "Dynasty8",
+    type: "Plateforme immobilière",
+    desc: "Catalogue de biens de prestige, recherche, zones et parcours agence.",
+    url: "https://dynasty8.kodyalabs.fr/",
+    host: "dynasty8.kodyalabs.fr",
+    image: join(imgDir, "dynasty8.png"),
+    accent: "1FA87A",
+  },
+  {
+    title: "Cabinet Valet",
+    type: "Site cabinet professionnel",
+    desc: "Identité premium, expertises, prise de rendez-vous et présence institutionnelle.",
+    url: "https://cabinet-valet.kodyalabs.fr/",
+    host: "cabinet-valet.kodyalabs.fr",
+    image: join(imgDir, "cabinet-valet.png"),
+    accent: "C8F542",
+  },
+];
+
 
 const pptx = new PptxGenJS();
 pptx.defineLayout({ name: "WIDE", width: 13.333, height: 7.5 });
@@ -137,7 +169,7 @@ function eyebrow(slide, text, y = 0.45) {
       fontSize: 13, fontFace: "Arial", color: COLORS.inkSoft,
     });
   });
-  addFooter(s, "02 / 08");
+  addFooter(s, "02 / 13");
 }
 
 // —— 3. Motivation ——
@@ -179,7 +211,7 @@ function eyebrow(slide, text, y = 0.45) {
     fontSize: 14, fontFace: "Arial", color: COLORS.inkSoft, paraSpaceAfter: 10,
     bullet: { code: "25A0" },
   });
-  addFooter(s, "03 / 08");
+  addFooter(s, "03 / 13");
 }
 
 // —— 4. Valeurs ——
@@ -211,7 +243,7 @@ function eyebrow(slide, text, y = 0.45) {
       fontSize: 14, fontFace: "Arial", color: COLORS.inkSoft,
     });
   });
-  addFooter(s, "04 / 08");
+  addFooter(s, "04 / 13");
 }
 
 // —— 5. Offre ——
@@ -246,14 +278,124 @@ function eyebrow(slide, text, y = 0.45) {
       fontSize: 13, fontFace: "Arial", color: COLORS.inkSoft,
     });
   });
-  addFooter(s, "05 / 08");
+  addFooter(s, "05 / 13");
 }
 
-// —— 6. Marché ——
+// —— 6. Réalisations — intro ——
 {
   const s = pptx.addSlide();
   s.addShape(pptx.shapes.RECTANGLE, { x: 0, y: 0, w: 13.333, h: 7.5, fill: { color: COLORS.ink } });
-  s.addText("04 — MARCHÉ & IMPACT", {
+  s.addText("04 — RÉALISATIONS", {
+    x: 0.7, y: 2.2, w: 12, h: 0.35,
+    fontSize: 12, fontFace: "Arial", bold: true, color: COLORS.signal, charSpacing: 3,
+  });
+  s.addText("Preuves de savoir-faire", {
+    x: 0.7, y: 2.7, w: 12, h: 0.7,
+    fontSize: 40, fontFace: "Arial", bold: true, color: COLORS.white,
+  });
+  s.addText("Trois livrables web conçus et mis en ligne — vitrine studio, immobilier, cabinet professionnel.", {
+    x: 0.7, y: 3.5, w: 11, h: 0.7,
+    fontSize: 16, fontFace: "Arial", color: "A8B0BC",
+  });
+  s.addText("ODev — Dossier de création · ODEV-2026-01", {
+    x: 0.6, y: 7.05, w: 10, h: 0.3, fontSize: 10, fontFace: "Arial", color: "6B7380",
+  });
+  s.addText("06 / 13", {
+    x: 11.2, y: 7.05, w: 1.5, h: 0.3, fontSize: 10, fontFace: "Arial", color: "6B7380", align: "right",
+  });
+}
+
+// —— 7-9. Projets avec captures ——
+PROJECTS.forEach((project, index) => {
+  const s = pptx.addSlide();
+  s.addShape(pptx.shapes.RECTANGLE, { x: 0, y: 0, w: 13.333, h: 7.5, fill: { color: COLORS.white } });
+  eyebrow(s, `04 — Réalisation 0${index + 1}`);
+  s.addText(project.title, {
+    x: 0.7, y: 0.8, w: 5.2, h: 0.5,
+    fontSize: 28, fontFace: "Arial", bold: true, color: COLORS.ink,
+  });
+  s.addText(project.type, {
+    x: 0.7, y: 1.3, w: 5.2, h: 0.35,
+    fontSize: 13, fontFace: "Arial", bold: true, color: project.accent.replace("#", "") || COLORS.signal,
+  });
+  s.addText(project.desc, {
+    x: 0.7, y: 1.8, w: 5.2, h: 1.2,
+    fontSize: 14, fontFace: "Arial", color: COLORS.inkSoft,
+  });
+  s.addText("Voir le site en ligne →", {
+    x: 0.7, y: 3.2, w: 5.2, h: 0.4,
+    fontSize: 14, fontFace: "Arial", bold: true, color: COLORS.signal,
+    hyperlink: { url: project.url },
+  });
+  s.addText(project.host, {
+    x: 0.7, y: 3.55, w: 5.2, h: 0.35,
+    fontSize: 12, fontFace: "Arial", color: COLORS.inkSoft,
+    hyperlink: { url: project.url },
+  });
+  s.addText(project.url, {
+    x: 0.7, y: 5.8, w: 5.2, h: 0.35,
+    fontSize: 11, fontFace: "Arial", color: COLORS.teal,
+    hyperlink: { url: project.url },
+  });
+
+  s.addShape(pptx.shapes.RECTANGLE, {
+    x: 6.2, y: 0.7, w: 6.5, h: 5.6,
+    fill: { color: COLORS.paper },
+    line: { color: "C8CED8", width: 1 },
+  });
+  s.addImage({
+    path: project.image,
+    x: 6.35,
+    y: 0.85,
+    w: 6.2,
+    h: 5.3,
+  });
+  addFooter(s, `${String(7 + index).padStart(2, "0")} / 12`);
+});
+
+// —— 10. Liens récap ——
+{
+  const s = pptx.addSlide();
+  s.addShape(pptx.shapes.RECTANGLE, { x: 0, y: 0, w: 13.333, h: 7.5, fill: { color: COLORS.mist } });
+  eyebrow(s, "04 — Portfolio en ligne");
+  s.addText("Liens des réalisations", {
+    x: 0.7, y: 0.85, w: 12, h: 0.5,
+    fontSize: 32, fontFace: "Arial", bold: true, color: COLORS.ink,
+  });
+
+  PROJECTS.forEach((project, i) => {
+    const y = 1.7 + i * 1.5;
+    s.addShape(pptx.shapes.RECTANGLE, {
+      x: 0.7, y, w: 12, h: 1.3,
+      fill: { color: COLORS.white },
+      line: { color: "C8CED8", width: 1 },
+    });
+    s.addImage({
+      path: project.image,
+      x: 0.9, y: y + 0.15, w: 2.0, h: 1.0,
+    });
+    s.addText(project.title, {
+      x: 3.2, y: y + 0.25, w: 8, h: 0.35,
+      fontSize: 18, fontFace: "Arial", bold: true, color: COLORS.ink,
+    });
+    s.addText(project.type, {
+      x: 3.2, y: y + 0.55, w: 8, h: 0.25,
+      fontSize: 12, fontFace: "Arial", color: COLORS.inkSoft,
+    });
+    s.addText(project.url, {
+      x: 3.2, y: y + 0.85, w: 9, h: 0.3,
+      fontSize: 13, fontFace: "Arial", bold: true, color: COLORS.signal,
+      hyperlink: { url: project.url },
+    });
+  });
+  addFooter(s, "10 / 13");
+}
+
+// —— 11. Marché ——
+{
+  const s = pptx.addSlide();
+  s.addShape(pptx.shapes.RECTANGLE, { x: 0, y: 0, w: 13.333, h: 7.5, fill: { color: COLORS.ink } });
+  s.addText("05 — MARCHÉ & IMPACT", {
     x: 0.7, y: 0.45, w: 12, h: 0.3,
     fontSize: 11, fontFace: "Arial", bold: true, color: COLORS.signal, charSpacing: 3,
   });
@@ -290,16 +432,16 @@ function eyebrow(slide, text, y = 0.45) {
   s.addText("ODev — Dossier de création · ODEV-2026-01", {
     x: 0.6, y: 7.05, w: 10, h: 0.3, fontSize: 10, fontFace: "Arial", color: "6B7380",
   });
-  s.addText("06 / 08", {
+  s.addText("11 / 13", {
     x: 11.2, y: 7.05, w: 1.5, h: 0.3, fontSize: 10, fontFace: "Arial", color: "6B7380", align: "right",
   });
 }
 
-// —— 7. Modèle + Porteur ——
+// —— 12. Modèle + Porteur ——
 {
   const s = pptx.addSlide();
   s.addShape(pptx.shapes.RECTANGLE, { x: 0, y: 0, w: 13.333, h: 7.5, fill: { color: COLORS.white } });
-  eyebrow(s, "05 — Modèle & porteur");
+  eyebrow(s, "06 — Modèle & porteur");
   s.addText("Fonctionnement & responsabilité", {
     x: 0.7, y: 0.85, w: 12, h: 0.5,
     fontSize: 30, fontFace: "Arial", bold: true, color: COLORS.ink,
@@ -342,10 +484,10 @@ function eyebrow(slide, text, y = 0.45) {
     x: 1, y: 4.25, w: 11, h: 1.6,
     fontSize: 14, fontFace: "Arial", color: COLORS.inkSoft,
   });
-  addFooter(s, "07 / 08");
+  addFooter(s, "12 / 13");
 }
 
-// —— 8. Demande ——
+// —— 13. Demande ——
 {
   const s = pptx.addSlide();
   s.addShape(pptx.shapes.RECTANGLE, { x: 0, y: 0, w: 13.333, h: 7.5, fill: { color: COLORS.paper } });
@@ -375,11 +517,12 @@ function eyebrow(slide, text, y = 0.45) {
     x: 1.1, y: 4.55, w: 6, h: 0.35,
     fontSize: 18, fontFace: "Arial", bold: true, color: COLORS.ink,
   });
-  s.addText("Fondateur — ODev    ·    darren@odev.studio", {
-    x: 1.1, y: 4.95, w: 8, h: 0.3,
+  s.addText("Fondateur — ODev    ·    https://odev.kodyalabs.fr/", {
+    x: 1.1, y: 4.95, w: 10, h: 0.3,
     fontSize: 13, fontFace: "Arial", color: COLORS.inkSoft,
+    hyperlink: { url: "https://odev.kodyalabs.fr/" },
   });
-  addFooter(s, "08 / 08");
+  addFooter(s, "13 / 13");
 }
 
 const outFile = join(outDir, "ODev-Dossier-Creation.pptx");

@@ -36,11 +36,21 @@ Astuce alternative Google Drive : uploade le `.pptx` sur Drive → clic droit �
 
 1. Couverture  
 2. Identité  
-3. Motivation (constat / réponse)  
+3. Motivation  
 4. Principes  
 5. Offre de services  
-6. Marché & impact  
-7. Modèle & porteur  
-8. Demande d'ouverture  
+6. Intro réalisations  
+7. ODev Studio + capture + lien  
+8. Dynasty8 + capture + lien  
+9. Cabinet Valet + capture + lien  
+10. Récap liens portfolio  
+11. Marché & impact  
+12. Modèle & porteur  
+13. Demande d'ouverture  
 
-Aucune mention RP — document cohérent pour une présentation institutionnelle.
+### Liens inclus (cliquables)
+
+- https://odev.kodyalabs.fr/
+- https://dynasty8.kodyalabs.fr/
+- https://cabinet-valet.kodyalabs.fr/
+
