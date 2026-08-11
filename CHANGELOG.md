@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce projet sont documentées ici.
 
+## [0.2.0] — 2026-08-11
+
+### Ajouté
+
+- CRM **ODev Gestion** (`gestion/`) : clients, devis, factures, paiements, compta
+- Installateur MySQL Hostinger / phpMyAdmin (`install.php`)
+- Guide `docs/odev-gestion-hostinger.md`
+
 ## [0.1.1] — 2026-08-10
 
 ### Ajouté

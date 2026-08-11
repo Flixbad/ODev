@@ -43,6 +43,17 @@ Uploade le contenu de **`out/`** (ou `odev-hostinger.zip`) dans **`public_html`*
 
 Guide détaillé : [docs/deploiement-hostinger.md](docs/deploiement-hostinger.md)
 
+## ODev Gestion (CRM)
+
+Back-office PHP + MySQL (clients, devis, factures, compta) dans `gestion/`.
+
+```text
+public_html/          → site vitrine (out/)
+public_html/gestion/  → CRM PHP
+```
+
+Guide : [docs/odev-gestion-hostinger.md](docs/odev-gestion-hostinger.md) · [gestion/README.md](gestion/README.md)
+
 ## Arborescence
 
 ```

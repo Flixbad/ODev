@@ -35,6 +35,10 @@ yarn-error.log*
 .env*
 !.env.example
 
+# ODev Gestion (secrets locaux)
+/gestion/config.php
+
+
 # vercel
 .vercel
 
