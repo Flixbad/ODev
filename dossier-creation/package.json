@@ -1,0 +1,11 @@
+{
+  "name": "odev-dossier-creation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "slides": "node generate-slides.mjs"
+  },
+  "dependencies": {
+    "pptxgenjs": "^3.12.0"
+  }
+}

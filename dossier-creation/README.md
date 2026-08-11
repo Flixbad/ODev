@@ -21,3 +21,14 @@ npx serve dossier-creation
 ```
 
 Bouton **Imprimer / PDF** en haut à droite pour générer un PDF via le navigateur.
+
+## Export Canva / Google Slides
+
+```bash
+cd dossier-creation
+npm install
+npm run slides
+```
+
+→ fichier `export/ODev-Dossier-Creation.pptx`  
+Guide : [EXPORT-SLIDES.md](./EXPORT-SLIDES.md)
