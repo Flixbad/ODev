@@ -9,23 +9,33 @@ const CONTACT_URL =
 
 const projects = [
   {
-    title: "Dynasty8",
-    type: "Site immobilier de prestige",
-    description:
-      "Plateforme web complète pour une agence immobilière : catalogue de biens, filtres, zones, parcours de découverte et expérience visuelle soignée.",
-    url: "https://dynasty8.kodyalabs.fr/",
-    host: "dynasty8.kodyalabs.fr",
-    price: "90k$",
-    accent: "signal" as const,
-  },
-  {
     title: "Cabinet Valet",
     type: "Site vitrine professionnel",
     description:
       "Présence web soignée pour un cabinet : identité claire, parcours client et mise en avant des services — prêt à être repris et exploité.",
     url: "https://cabinet-valet.kodyalabs.fr/",
     host: "cabinet-valet.kodyalabs.fr",
-    price: "55k$",
+    price: "8 500$",
+    accent: "teal" as const,
+  },
+  {
+    title: "Maison Aureum",
+    type: "Site atelier de tatouage",
+    description:
+      "Site immersif pour un atelier de tatouage : manifeste, atlas du corps, artistes, tarifs et prise de rendez-vous — une expérience visuelle premium clé en main.",
+    url: "https://tattoo.kodyalabs.fr/",
+    host: "tattoo.kodyalabs.fr",
+    price: "14 500$",
+    accent: "signal" as const,
+  },
+  {
+    title: "Maison Aurèle",
+    type: "Site salon de coiffure",
+    description:
+      "Cut lab premium pour un salon de coiffure : univers femme/homme/couleur, grille tarifaire, équipe et réservation en ligne — prêt à être repris et exploité.",
+    url: "https://salon-coiffure.kodyalabs.fr/",
+    host: "salon-coiffure.kodyalabs.fr",
+    price: "11 500$",
     accent: "teal" as const,
   },
 ];

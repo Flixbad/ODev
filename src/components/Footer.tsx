@@ -17,6 +17,9 @@ export function Footer() {
           <a href="#services" className="text-ink-soft hover:text-ink">
             Services
           </a>
+          <a href="#tarifs" className="text-ink-soft hover:text-ink">
+            Tarifs
+          </a>
           <a href="#methode" className="text-ink-soft hover:text-ink">
             Méthode
           </a>
